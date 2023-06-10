@@ -17,37 +17,38 @@
 #define SDLK_UNDEFINED -1
 
 // must be unique except for absent buttons
-#define MINUI_UP 		SDLK_UP
-#define MINUI_DOWN 		SDLK_DOWN
-#define MINUI_LEFT 		SDLK_LEFT
-#define MINUI_RIGHT 	SDLK_RIGHT
-#define MINUI_A 		SDLK_SPACE
-#define MINUI_B 		SDLK_LCTRL
-#define MINUI_X 		SDLK_LSHIFT
-#define MINUI_Y 		SDLK_LALT
-#define MINUI_START 	SDLK_RETURN
-#define MINUI_SELECT 	SDLK_RCTRL
-#define MINUI_L 		SDLK_e
-#define MINUI_R 		SDLK_t
-#define MINUI_MENU	 	SDLK_ESCAPE
-#define MINUI_L2 		SDLK_TAB
-#define MINUI_R2 		SDLK_BACKSPACE
-#define MINUI_L3 		SDLK_UNDEFINED
-#define MINUI_R3 		SDLK_UNDEFINED
-#define MINUI_POWER 	SDLK_POWER
-#define MINUI_VOLDN		SDLK_LSUPER
-#define MINUI_VOLUP		SDLK_RSUPER
+#define MINUI_UP SDLK_UP
+#define MINUI_DOWN SDLK_DOWN
+#define MINUI_LEFT SDLK_LEFT
+#define MINUI_RIGHT SDLK_RIGHT
+#define MINUI_A SDLK_SPACE
+#define MINUI_B SDLK_LCTRL
+#define MINUI_X SDLK_LSHIFT
+#define MINUI_Y SDLK_LALT
+#define MINUI_START SDLK_RETURN
+#define MINUI_SELECT SDLK_RCTRL
+#define MINUI_L SDLK_e
+#define MINUI_R SDLK_t
+#define MINUI_MENU SDLK_ESCAPE
+#define MINUI_L2 SDLK_TAB
+#define MINUI_R2 SDLK_BACKSPACE
+#define MINUI_L3 SDLK_UNDEFINED
+#define MINUI_R3 SDLK_UNDEFINED
+#define MINUI_POWER SDLK_POWER
+#define MINUI_VOLDN SDLK_LSUPER
+#define MINUI_VOLUP SDLK_RSUPER
 
-#define PINK_TRIAD 0xd4,0x98,0xab
-#define BRONZE_TRIAD 0xa1,0x74,0x82
-#define WHITE_TRIAD 0xff,0xff,0xff
-#define GRAY_TRIAD 0x66,0x66,0x66
-#define SHADOW25_TRIAD 0xa1,0x87,0x47
-#define SHADOW50_TRIAD 0x68,0x5a,0x35
-#define DISABLED_TRIAD 0xda,0xda,0xda
-#define DISABLED_SHADOW_TRIAD 0xc4,0xc4,0xc4
+#define BLUE_TRIAD 0x1e, 0x90, 0xff
+#define BRONZE_TRIAD 0xa1, 0x74, 0x82
+#define WHITE_TRIAD 0xff, 0xff, 0xff
+#define GRAY_TRIAD 0x66, 0x66, 0x66
+#define SHADOW25_TRIAD 0xa1, 0x87, 0x47
+#define SHADOW50_TRIAD 0x68, 0x5a, 0x35
+#define DISABLED_TRIAD 0xda, 0xda, 0xda
+#define DISABLED_SHADOW_TRIAD 0xc4, 0xc4, 0xc4
 
-typedef enum ButtonIndex {
+typedef enum ButtonIndex
+{
 	kButtonUp = 0,
 	kButtonDown,
 	kButtonLeft,
@@ -78,7 +79,8 @@ typedef enum ButtonIndex {
 #define kButtonResume kButtonX
 #define kButtonAltEmu kButtonY
 
-typedef struct UnionPaths {
+typedef struct UnionPaths
+{
 	char rootDir[256];
 	char userdataDir[256];
 	char resDir[256];
@@ -98,12 +100,14 @@ typedef struct UnionPaths {
 #define kEnableSimpleModePath "/mnt/SDCARD/.userdata/enable-simple-mode"
 
 // NOTE: this was a huge, dumb refactor
-typedef struct UnionScreen {
+typedef struct UnionScreen
+{
 	int width;
 	int height;
-	
-	struct {
-		
+
+	struct
+	{
+
 		// TODO: break up into {size,oy} structs by size
 		int small_size;
 		int medium_size;
@@ -111,16 +115,19 @@ typedef struct UnionScreen {
 		int small_oy;
 		int medium_oy;
 		int large_oy;
-		
-		struct {
+
+		struct
+		{
 			int ox;
 			int oy;
 		} shadow;
 	} font;
-	
-	struct {
+
+	struct
+	{
 		int size;
-		struct {
+		struct
+		{
 			int oy;
 			int ox_A;
 			int ox_B;
@@ -128,59 +135,71 @@ typedef struct UnionScreen {
 			int ox_Y;
 		} text;
 	} button;
-	
-	struct {
+
+	struct
+	{
 		int pad_width;
 		int text_oy;
 	} pill;
-	
-	struct {
+
+	struct
+	{
 		int ox;
 		int text_oy;
 	} hint;
-	
-	struct {
+
+	struct
+	{
 		int width;
 		int height;
-		struct {
+		struct
+		{
 			int ox;
 			int oy;
 		} icon;
-		struct {
+		struct
+		{
 			int ox;
 			int oy;
 		} bar;
 	} settings;
-	
-	struct {
+
+	struct
+	{
 		int top; // TODO: why is this top and not y?
 		int left;
 		int right;
 		int gutter;
 	} buttons;
-	
-	struct { // main
-		struct {
+
+	struct
+	{ // main
+		struct
+		{
 			int x;
 			int y;
 		} settings;
 
-		struct {
+		struct
+		{
 			int x;
 			int y;
 		} battery;
-		
-		struct {
+
+		struct
+		{
 			int top_y;
 			int bottom_y;
 		} rule;
 
-		struct {
+		struct
+		{
 			int x;
 			int y;
 		} logo;
 
-		struct {
+		struct
+		{
 			int row_count;
 			int y;
 			int ox;
@@ -190,76 +209,89 @@ typedef struct UnionScreen {
 			int alt_oy;
 		} list;
 	} main;
-	
-	struct { // menu
-		struct {
+
+	struct
+	{ // menu
+		struct
+		{
 			int x;
 			int y;
 		} settings;
 
-		struct {
+		struct
+		{
 			int x;
 			int y;
 		} battery;
-		
-		struct {
+
+		struct
+		{
 			int top_y;
 			int bottom_y;
 		} rule;
-		
-		struct {
+
+		struct
+		{
 			int top; // TODO: why is this top and not y?
 		} buttons;
-		
-		struct {
+
+		struct
+		{
 			int ox;
 			int oy;
 		} disc;
-		
-		struct {
+
+		struct
+		{
 			int x;
 			int y;
 			int width;
 			int height;
 			int inset;
 		} preview;
-	
-		struct {
+
+		struct
+		{
 			int x;
 			int y;
 			int ox;
 		} slots;
-		
-		struct {
+
+		struct
+		{
 			int x;
 			int y;
 			int width;
 		} title;
-		
-		struct {
+
+		struct
+		{
 			int x;
 			int y;
 			int width;
 			int height;
 		} window;
-		
-		struct {
+
+		struct
+		{
 			int x;
 			int y;
 			int oy;
 			int line_height;
 			int row_height;
 		} list;
-		
-		struct {
+
+		struct
+		{
 			int ox; // NOTE: from right edge
 			int oy;
 		} arrow;
-		
+
 		int bar_height;
 	} menu;
-		
-	struct {
+
+	struct
+	{
 		int line_height;
 	} body;
 
@@ -276,42 +308,42 @@ int Input_justRepeated(ButtonIndex btn);
 int Input_isPressed(ButtonIndex btn);
 int Input_justReleased(ButtonIndex btn);
 
-int prefixMatch(char* pre, char* str);
-int suffixMatch(char* suf, char* str);
-int exactMatch(char* str1, char* str2);
-int hide(char* file_name);
+int prefixMatch(char *pre, char *str);
+int suffixMatch(char *suf, char *str);
+int exactMatch(char *str1, char *str2);
+int hide(char *file_name);
 
-void getDisplayName(const char* in_name, char* out_name);
-void getEmuName(const char* in_name, char* out_name);
+void getDisplayName(const char *in_name, char *out_name);
+void getEmuName(const char *in_name, char *out_name);
 
-void normalizeNewline(char* line);
-void trimTrailingNewlines(char* line);
+void normalizeNewline(char *line);
+void trimTrailingNewlines(char *line);
 
-int exists(char* path);
-void touch(char* path);
-void putFile(char* path, char* contents);
-void getFile(char* path, char* buffer, size_t buffer_size);
-void putInt(char* path, int value);
-int getInt(char* path);
+int exists(char *path);
+void touch(char *path);
+void putFile(char *path, char *contents);
+void getFile(char *path, char *buffer, size_t buffer_size);
+void putInt(char *path, int value);
+int getInt(char *path);
 
 void GFX_init(void);
 void GFX_ready(void);
 void GFX_quit(void);
 void GFX_clear(void);
-SDL_Surface* GFX_loadImage(char* path); // only meant for system images, not arbitrary images like save state previews!
-void GFX_blitRule(SDL_Surface* surface, int y);
-int GFX_blitHint(SDL_Surface* surface, char* htxt, int x, int y);
-int GFX_blitPill(SDL_Surface* surface, char* btxt, char* htxt, int x, int y);
-int GFX_blitButton(SDL_Surface* surface, char* btxt, char* htxt, int x, int y, int bx);
-void GFX_blitMenu(SDL_Surface* surface, char* name, char* path, char* unique, int row, int selected_row);
-int GFX_scrollMenu(SDL_Surface* surface, char* name, char* path, char* unique, int row, int selected, int reset, int force);
-void GFX_blitWindow(SDL_Surface* surface, int x, int y, int width, int height, int color); // color=0:black,1:white
-void GFX_blitBodyCopy(SDL_Surface* surface, char* text, int x, int y, int width, int height); // gold, centered in rect, multiline okay!
-int GFX_blitText(SDL_Surface* surface, char* text, int size, int x, int y, int width, int color, int has_shadow); // size=0:small,1:medium,2:large width=0:left,>0:center,<0:right, color=0:white,1:gold, no multiline
+SDL_Surface *GFX_loadImage(char *path); // only meant for system images, not arbitrary images like save state previews!
+void GFX_blitRule(SDL_Surface *surface, int y);
+int GFX_blitHint(SDL_Surface *surface, char *htxt, int x, int y);
+int GFX_blitPill(SDL_Surface *surface, char *btxt, char *htxt, int x, int y);
+int GFX_blitButton(SDL_Surface *surface, char *btxt, char *htxt, int x, int y, int bx);
+void GFX_blitMenu(SDL_Surface *surface, char *name, char *path, char *unique, int row, int selected_row);
+int GFX_scrollMenu(SDL_Surface *surface, char *name, char *path, char *unique, int row, int selected, int reset, int force);
+void GFX_blitWindow(SDL_Surface *surface, int x, int y, int width, int height, int color);						  // color=0:black,1:white
+void GFX_blitBodyCopy(SDL_Surface *surface, char *text, int x, int y, int width, int height);					  // gold, centered in rect, multiline okay!
+int GFX_blitText(SDL_Surface *surface, char *text, int size, int x, int y, int width, int color, int has_shadow); // size=0:small,1:medium,2:large width=0:left,>0:center,<0:right, color=0:white,1:gold, no multiline
 
-SDL_Surface* GFX_getText(char* text, int size, int color);
-void GFX_blitBattery(SDL_Surface* surface, int x, int y);
-void GFX_blitSettings(SDL_Surface* surface, int x, int y, int icon, int value, int min_value, int max_value); // icon=0:brightness,1:volume,2:mute
+SDL_Surface *GFX_getText(char *text, int size, int color);
+void GFX_blitBattery(SDL_Surface *surface, int x, int y);
+void GFX_blitSettings(SDL_Surface *surface, int x, int y, int icon, int value, int min_value, int max_value); // icon=0:brightness,1:volume,2:mute
 
 void waitForWake(void);
 void fauxSleep(void);
@@ -322,7 +354,6 @@ void powerOff(void);
 
 void enterSleep(void);
 void exitSleep(void);
-
 
 void disablePoweroff(void);
 int preventAutosleep(void);
