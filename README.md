@@ -1,5 +1,5 @@
 # Miyoo Mini Plus Custom OS
-_This is a fork of DotUI with some changes to suit my personal preferences. 
+This is a fork of DotUI with some changes to suit my personal preferences. 
 
 ---
 
