@@ -45,7 +45,7 @@ To install an update copy just the "miyoo354" folder to the root of your SD card
 Shortcuts
 
 Reduce/increase brightness:
-START + L or R
+MENU + Volume UP or DOWN
 
 Reduce/increase volume:
 Volume Buttons
