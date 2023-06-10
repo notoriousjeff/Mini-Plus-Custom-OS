@@ -1,3 +1,8 @@
+# Miyoo Mini Plus Custom OS
+_This is a fork of DotUI with some changes to suit my personal preferences. 
+
+---
+
 # DotUI
 
 _DotUI is a port of the popular [MiniUI](https://github.com/shauninman/MiniUI) custom launcher and integrated in-game menu, compatible with the [Miyoo Mini Plus](https://www.aliexpress.com/item/1005005215387485.html) handheld emulator_
